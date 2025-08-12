@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,53 +13,63 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Applying the Inter font and a clean, dark theme */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050816; /* A deep, space-like navy blue */
-            color: #E5E7EB; /* Light text */
+            background-color: #000000;
+            color: #E5E7EB;
         }
-        /* Hero section with a more subtle background */
         .hero-section {
-            background-image: linear-gradient(rgba(5, 8, 22, 0.8), rgba(5, 8, 22, 1)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 2)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
             background-size: cover;
             background-position: center;
         }
-        /* Glassmorphism effect for the sticky header */
         .glass-header {
             position: sticky;
             top: 0;
             z-index: 50;
-            background-color: rgba(5, 8, 22, 0.5); /* Semi-transparent background */
+            background-color: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-        .section-title p {
-            font-size: 1.125rem;
-            color: #9CA3AF;
-            max-width: 600px;
-            margin: auto;
-        }
         .card {
-            background-color: rgba(17, 24, 39, 0.8); /* Darker card background */
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #111827;
+            border: 1px solid #374151;
             border-radius: 0.75rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+            border-color: #6366F1;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Prose styles for Gemini output */
+        .prose h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #818cf8; /* Indigo-400 */
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1rem;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -69,226 +79,180 @@
     <header class="glass-header py-4">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
-                <!-- Site Title / Logo -->
-                <a href="#" class="text-2xl md:text-3xl font-extrabold text-white">
+                <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-white">
                     Vortiqon<span class="text-indigo-400">.</span>Science
                 </a>
-                <!-- Navigation Menu -->
-                <nav class="hidden md:flex items-center space-x-8 text-base font-medium">
-                    <a href="#home" class="text-white hover:text-indigo-300 transition-colors duration-300">Home</a>
-                    <a href="#projects" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Projects</a>
-                    <a href="#team" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Team</a>
-                    <a href="https://www.youtube.com/@vortiqon_science" target="_blank" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">YouTube</a>
-                </nav>
-                <a href="mailto:contact.vortiqon@gmail.com?subject=Joining the Vortiqon Science Team" class="hidden md:inline-block ml-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-all duration-300">
-                    Join Us
-                </a>
-                <!-- Mobile Menu Button (for future use) -->
-                <button class="md:hidden text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex items-center space-x-8 text-base font-medium">
+                        <a href="index.html" class="text-white hover:text-indigo-300 transition-colors duration-300">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Projects</a>
+                        <a href="team.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Team</a>
+                        <a href="blog.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Blog</a>
+                    </nav>
+                    <a href="mailto:contact.vortiqon@gmail.com?subject=Team Application" class="hidden md:inline-block ml-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-all duration-300">Join</a>
+                </div>
+                <button class="md:hidden text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section text-white relative">
-        <div class="container mx-auto px-6 py-32 md:py-48 text-center relative z-10">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
-                Engineering the Future of Space
-            </h1>
-            <p class="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-gray-300">
-                An independent aerospace research team from K. N. Toosi University of Technology, bridging the gap between theory and practice through hands-on projects.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#projects" class="bg-indigo-600 text-white font-bold text-lg py-3 px-8 rounded-lg hover:bg-indigo-700 transition-all duration-300 inline-block transform hover:scale-105 min-w-[220px]">
-                   Explore Our Projects
-                </a>
-                <a href="https://www.youtube.com/@vortiqon_science" target="_blank" class="bg-gray-700/50 border border-gray-600 text-gray-200 font-bold text-lg py-3 px-8 rounded-lg hover:bg-gray-600/50 transition-all duration-300 inline-block transform hover:scale-105 min-w-[220px]">
-                   Watch Our Journey
-                </a>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section text-white relative -mx-6">
+            <div class="container mx-auto px-6 py-28 md:py-40 text-center relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight reveal">Vortiqon Science</h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-300 reveal" style="transition-delay: 200ms;">An independent aerospace research team from K. N. Toosi University of Technology, documenting our journey to build the future.</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 reveal" style="transition-delay: 400ms;">
+                    <a href="#about" class="bg-indigo-600 text-white font-bold text-lg py-3 px-8 rounded-lg hover:bg-indigo-700 transition-all duration-300 inline-block transform hover:scale-105 min-w-[220px]">Our Mission</a>
+                    <a href="mailto:contact.vortiqon@gmail.com?subject=Team Application" class="bg-gray-700/50 border border-gray-600 text-gray-200 font-bold text-lg py-3 px-8 rounded-lg hover:bg-gray-600/50 transition-all duration-300 inline-block transform hover:scale-105 min-w-[220px]">Join Our Team</a>
+                </div>
             </div>
+        </section>
+
+        <div class="py-20">
+            <!-- About Us Section -->
+            <section id="about" class="mb-24 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left">
+                        <h2 class="text-3xl font-bold text-white mb-4">About The Team</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">Vortiqon Science is an independent aerospace research team from K. N. Toosi University of Technology. Our mission is to bridge the gap between theory and practice by developing impactful, hands-on aerospace projects. We document our entire journey to educate and inspire the next generation of engineers through our public outreach and YouTube channel.</p>
+                    </div>
+                    <div><img src="https://placehold.co/600x400/1f2937/FFFFFF?text=Team+in+Action" alt="Vortiqon Science Team" class="rounded-lg shadow-2xl w-full"></div>
+                </div>
+            </section>
+
+            <!-- Featured Projects Section -->
+            <section id="projects" class="mb-24">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl font-bold text-white">Featured Projects</h2>
+                    <p class="text-gray-400 mt-2">A glimpse into our hands-on work and research.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="reveal"><div class="card overflow-hidden h-full flex flex-col"><img src="https://placehold.co/600x400/000000/FFFFFF?text=CubeSat+Mission+1" alt="CubeSat Mission 1" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-white">CubeSat Mission 1</h3><p class="text-gray-400 mb-4 flex-grow">Our flagship project: Designing, building, and testing our first 1U CubeSat from the ground up.</p><a href="projects.html" class="font-medium text-indigo-400 hover:text-indigo-300 mt-auto">Learn More &rarr;</a></div></div></div>
+                    <div class="reveal" style="transition-delay: 200ms;"><div class="card overflow-hidden h-full flex flex-col"><img src="https://placehold.co/600x400/000000/FFFFFF?text=Satellite+Refurbishment" alt="Satellite Refurbishment" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-white">Legacy Satellite Refurbishment</h3><p class="text-gray-400 mb-4 flex-grow">In collaboration with the KNTU Space Research Lab, we are revitalizing a legacy satellite system.</p><a href="projects.html" class="font-medium text-indigo-400 hover:text-indigo-300 mt-auto">Learn More &rarr;</a></div></div></div>
+                    <div class="reveal" style="transition-delay: 400ms;"><div class="card overflow-hidden h-full flex flex-col"><img src="https://placehold.co/600x400/000000/FFFFFF?text=Future+Mission+Concept" alt="Future Mission" class="w-full h-48 object-cover"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold mb-2 text-white">Next-Gen Mission Concept</h3><p class="text-gray-400 mb-4 flex-grow">Conceptualizing our next-generation mission, focusing on advanced orbital mechanics.</p><a href="projects.html" class="font-medium text-indigo-400 hover:text-indigo-300 mt-auto">Learn More &rarr;</a></div></div></div>
+                </div>
+            </section>
+
+            <!-- Gemini API Mission Idea Generator Section -->
+            <section class="reveal">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white">Mission Idea Generator</h2>
+                    <p class="text-gray-400 mt-2">Powered by Google's Gemini API. Have a space mission concept? Let our AI assistant draft a proposal for you.</p>
+                </div>
+                <div class="max-w-3xl mx-auto card p-6 md:p-8">
+                    <textarea id="mission-prompt" class="w-full bg-gray-900 border border-gray-700 rounded-md p-3 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" rows="4" placeholder="e.g., A constellation of CubeSats to provide internet access to remote areas using laser communication..."></textarea>
+                    <button id="generate-button" class="mt-4 w-full bg-indigo-600 text-white font-bold text-lg py-3 px-8 rounded-lg hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="button-text">Generate Mission Brief</span>
+                        <svg id="loader" class="animate-spin ml-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                    <div id="mission-result" class="mt-6 p-6 bg-gray-900 border border-gray-700 rounded-md hidden prose"></div>
+                </div>
+            </section>
         </div>
-    </section>
-
-    <!-- Main Content Section -->
-    <main class="container mx-auto px-6 py-24">
-        
-        <!-- Featured Projects Section -->
-        <section id="projects" class="mb-24">
-            <div class="section-title">
-                <h2>Featured Projects</h2>
-                <p>A glimpse into our hands-on work and research that turns academic concepts into reality.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1: CubeSat -->
-                <div class="card overflow-hidden">
-                    <img src="https://placehold.co/600x400/111827/FFFFFF?text=CubeSat+Mission+1" alt="CubeSat Mission 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">CubeSat Mission 1 (In Progress)</h3>
-                        <p class="text-gray-400 mb-4">Our flagship project: Designing, building, and testing our first 1U CubeSat from the ground up. Starting officially on September 8, 2025.</p>
-                        <a href="#" class="font-medium text-indigo-400 hover:text-indigo-300">Learn More &rarr;</a>
-                    </div>
-                </div>
-                <!-- Project Card 2: Satellite Refurbishment -->
-                <div class="card overflow-hidden">
-                    <img src="https://placehold.co/600x400/111827/FFFFFF?text=Satellite+Refurbishment" alt="Satellite Refurbishment" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Legacy Satellite Refurbishment</h3>
-                        <p class="text-gray-400 mb-4">In collaboration with the KNTU Space Research Lab (spacerl.com), we are revitalizing a legacy satellite system for modern research applications.</p>
-                        <a href="http://spacerl.com/" target="_blank" class="font-medium text-indigo-400 hover:text-indigo-300">Visit the Lab &rarr;</a>
-                    </div>
-                </div>
-                <!-- Project Card 3: Future Mission -->
-                <div class="card overflow-hidden">
-                    <img src="https://placehold.co/600x400/111827/FFFFFF?text=Future+Mission+Concept" alt="Future Mission" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Next-Gen Mission Concept</h3>
-                        <p class="text-gray-400 mb-4">Conceptualizing our next-generation mission, focusing on advanced orbital mechanics and inter-satellite communication.</p>
-                        <a href="#" class="font-medium text-indigo-400 hover:text-indigo-300">Learn More &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team" class="mb-24">
-            <div class="section-title">
-                <h2>Meet the Team</h2>
-                <p>The core group of students driving Vortiqon Science forward. We are a blend of passion, dedication, and technical curiosity.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-                <!-- Team Member: Ahmadreza Hajitalebi -->
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/200x200/1f2937/FFFFFF?text=A.H." alt="Ahmadreza Hajitalebi" class="w-32 h-32 rounded-full mb-4 border-4 border-indigo-500">
-                    <h4 class="text-lg font-bold text-white">Ahmadreza Hajitalebi</h4>
-                    <p class="text-indigo-400">Team Lead & Founder</p>
-                    <div class="mt-2 flex space-x-3">
-                        <a href="https://github.com/ahmadreza-hajtalebi" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <!-- Team Member: Sajjad Zahedi -->
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/200x200/1f2937/FFFFFF?text=S.Z." alt="Sajjad Zahedi" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-600">
-                    <h4 class="text-lg font-bold text-white">Sajjad Zahedi</h4>
-                    <p class="text-gray-400">CubeSat Lead</p>
-                </div>
-                <!-- Team Member: Reza Seraj -->
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/200x200/1f2937/FFFFFF?text=R.S." alt="Reza Seraj" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-600">
-                    <h4 class="text-lg font-bold text-white">Reza Seraj</h4>
-                    <p class="text-gray-400">Core Operations</p>
-                </div>
-                <!-- Team Member: Sepanta Ghasemi -->
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/200x200/1f2937/FFFFFF?text=S.G." alt="Sepanta Ghasemi" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-600">
-                    <h4 class="text-lg font-bold text-white">Sepanta Ghasemi</h4>
-                    <p class="text-gray-400">Sub-Team Lead</p>
-                </div>
-                <!-- Team Member: M.M. Allahverdi -->
-                <div class="flex flex-col items-center">
-                    <img src="https://placehold.co/200x200/1f2937/FFFFFF?text=M.A." alt="Mohammadmahdi Allahverdi" class="w-32 h-32 rounded-full mb-4 border-4 border-gray-600">
-                    <h4 class="text-lg font-bold text-white">M. Allahverdi</h4>
-                    <p class="text-gray-400">Sub-Team Lead</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gemini API Mission Idea Generator Section -->
-        <section>
-            <div class="section-title">
-                <h2>Mission Idea Generator</h2>
-                <p>Powered by Google's Gemini API. Have a space mission concept? Let our AI assistant draft a proposal for you.</p>
-            </div>
-            <div class="max-w-3xl mx-auto card p-6 md:p-8">
-                <label for="mission-prompt" class="block mb-2 text-sm font-medium text-gray-300">Enter your mission idea:</label>
-                <textarea id="mission-prompt" class="w-full bg-gray-900 border border-gray-700 rounded-md p-3 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" rows="3" placeholder="e.g., A CubeSat to monitor polar ice caps using infrared sensors..."></textarea>
-                <button id="generate-button" class="mt-4 w-full bg-indigo-600 text-white font-bold text-lg py-3 px-8 rounded-lg hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center">
-                    <span id="button-text">Generate Mission Brief</span>
-                    <svg id="loader" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </button>
-                <div id="mission-result" class="mt-6 p-4 bg-gray-900 border border-gray-700 rounded-md hidden">
-                    <!-- Generated content will appear here -->
-                </div>
-            </div>
-        </section>
-
     </main>
     
     <!-- Footer -->
-    <footer class="bg-gray-900/50 border-t border-gray-800 mt-24">
+    <footer class="border-t border-gray-800">
         <div class="container mx-auto px-6 py-8 text-center text-gray-400">
             <p>&copy; 2025 Vortiqon Science. All Rights Reserved.</p>
             <p class="mt-2">An independent student research team at K. N. Toosi University of Technology.</p>
             <div class="mt-4 flex justify-center space-x-6">
-                <a href="https://www.youtube.com/@vortiqon_science" target="_blank" class="hover:text-indigo-400"><i class="fab fa-youtube fa-lg"></i></a>
-                <a href="https://github.com/ahmadreza-hajtalebi" target="_blank" class="hover:text-indigo-400"><i class="fab fa-github fa-lg"></i></a>
-                <a href="mailto:contact.vortiqon@gmail.com" class="hover:text-indigo-400"><i class="fas fa-envelope fa-lg"></i></a>
+                <a href="https://www.youtube.com/@vortiqon_science" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://github.com/vortiqon-science" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="mailto:contact.vortiqon@gmail.com" class="hover:text-indigo-400 transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Gemini API Interaction Script
+    <script type="module">
+        // Scroll Animation Script
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+
+        // --- Gemini API Interaction Script ---
         const generateButton = document.getElementById('generate-button');
         const buttonText = document.getElementById('button-text');
         const loader = document.getElementById('loader');
         const missionPrompt = document.getElementById('mission-prompt');
         const missionResult = document.getElementById('mission-result');
 
+        // Improved Markdown to HTML converter
+        function markdownToHtml(md) {
+            let html = '';
+            const lines = md.split('\n');
+            let inList = false;
+
+            for (const line of lines) {
+                if (line.startsWith('### ')) {
+                    if (inList) { html += '</ul>'; inList = false; }
+                    html += `<h4>${line.substring(4)}</h4>`;
+                } else if (line.startsWith('* ')) {
+                    if (!inList) { html += '<ul>'; inList = true; }
+                    html += `<li>${line.substring(2)}</li>`;
+                } else {
+                    if (inList) { html += '</ul>'; inList = false; }
+                    if (line.trim() !== '') {
+                        html += `<p>${line}</p>`;
+                    }
+                }
+            }
+            if (inList) { html += '</ul>'; }
+            return html;
+        }
+
         generateButton.addEventListener('click', async () => {
             const promptText = missionPrompt.value;
-            if (!promptText) {
+            if (!promptText.trim()) {
                 missionResult.innerHTML = '<p class="text-red-400">Please enter a mission idea first.</p>';
                 missionResult.classList.remove('hidden');
                 return;
             }
 
-            // Show loader and disable button
-            buttonText.classList.add('hidden');
+            buttonText.textContent = "Generating...";
             loader.classList.remove('hidden');
             generateButton.disabled = true;
             missionResult.classList.add('hidden');
 
             try {
-                // This is a placeholder for the actual Gemini API call.
-                // In a real application, you would make a fetch request to your backend,
-                // which then calls the Gemini API to avoid exposing API keys.
-                // For this demo, we will simulate a response.
+                const fullPrompt = `As an expert aerospace engineering consultant, generate a concise and professional mission brief for the following concept. The response must be in Markdown format. The brief should be structured with these exact sections: ### Mission Title, ### Mission Objective, ### Key Technologies, ### Potential Impact. Concept: "${promptText}"`;
+                const apiKey = ""; // API key is handled by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
                 
-                // Construct the prompt for the model
-                const fullPrompt = `
-                    As an aerospace engineering consultant, generate a concise mission brief for the following concept. The brief should be professional and structured with these sections: Mission Title, Objective, Key Technologies, and Potential Impact.
-                    
-                    Concept: "${promptText}"
-                `;
+                const payload = { contents: [{ parts: [{ text: fullPrompt }] }] };
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-                // Simulate API call with a delay
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                const result = await response.json();
+
+                if (!response.ok || !result.candidates || result.candidates.length === 0) {
+                    console.error("API Error Response:", result);
+                    const errorDetails = result.error ? result.error.message : `API request failed with status ${response.status}`;
+                    throw new Error(errorDetails);
+                }
                 
-                // Simulated response for demonstration
-                const simulatedResponse = `
-                    <h4 class="text-lg font-bold text-indigo-400 mb-2">Mission Brief</h4>
-                    <p><strong>Mission Title:</strong> CryoSat-Observer</p>
-                    <p><strong>Objective:</strong> To monitor the thickness and extent of polar ice caps using advanced infrared and radar altimetry sensors to provide critical data for climate change models.</p>
-                    <p><strong>Key Technologies:</strong> Miniaturized LiDAR, Ka-band radar altimeter, high-efficiency solar panels, and an autonomous orbit-keeping system.</p>
-                    <p><strong>Potential Impact:</strong> This mission will provide unprecedented, high-resolution data to the scientific community, drastically improving our understanding of climate change's effects on polar regions and enhancing global sea-level rise predictions.</p>
-                `;
-
-                missionResult.innerHTML = simulatedResponse;
+                const generatedText = result.candidates[0].content.parts[0].text;
+                missionResult.innerHTML = markdownToHtml(generatedText);
 
             } catch (error) {
                 console.error("Error generating mission brief:", error);
-                missionResult.innerHTML = '<p class="text-red-400">An error occurred while generating the brief. Please try again.</p>';
+                missionResult.innerHTML = `<p class="text-red-400">An error occurred while communicating with the AI. This is expected in online runners that don't have the required API key. Please check the console for details.</p><p class="text-xs text-gray-500 mt-2">Error: ${error.message}</p>`;
             } finally {
-                // Hide loader and re-enable button
-                buttonText.classList.remove('hidden');
+                buttonText.textContent = "Generate Mission Brief";
                 loader.classList.add('hidden');
                 generateButton.disabled = false;
                 missionResult.classList.remove('hidden');

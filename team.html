@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Vortiqon Science</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for clean text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Pure Black Background */
+            color: #E5E7EB;
+        }
+        .glass-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* NEW, ROBUST CARD DESIGN */
+        .card-container {
+            perspective: 1000px; /* For potential 3D effects in the future */
+        }
+        .team-card {
+            background-color: #111827;
+            border-radius: 0.75rem;
+            border: 1px solid #374151;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            /* All transitions are defined here for smoothness */
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        border-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        /* The hover effect is applied to the card itself */
+        .card-container:hover .team-card {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), 0 0 15px rgba(99, 102, 241, 0.3);
+            border-color: #6366F1;
+        }
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem;
+            border: 4px solid #4f46e5;
+            object-fit: cover;
+        }
+        /* Scroll Animation Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="glass-header py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-white">
+                    Vortiqon<span class="text-indigo-400">.</span>Science
+                </a>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex items-center space-x-8 text-base font-medium">
+                        <a href="index.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Projects</a>
+                        <a href="team.html" class="text-white hover:text-indigo-300 transition-colors duration-300">Team</a>
+                        <a href="blog.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Blog</a>
+                    </nav>
+                    <a href="mailto:contact.vortiqon@gmail.com?subject=Team Application" class="hidden md:inline-block ml-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-all duration-300">
+                        Join
+                    </a>
+                </div>
+                <button class="md:hidden text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-20">
+        <!-- Page Title -->
+        <div class="text-center mb-16 reveal">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white">Meet Our Team</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">The minds and hands building the future of aerospace, one project at a time.</p>
+        </div>
+
+        <!-- Leadership Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-white mb-10 reveal">Leadership</h2>
+            <div class="flex justify-center">
+                <div class="card-container w-full max-w-sm reveal">
+                    <div class="team-card">
+                        <img src="https://placehold.co/200x200/000000/FFFFFF?text=A.H." alt="Ahmadreza Hajitalebi">
+                        <h3 class="text-2xl font-bold text-white">Ahmadreza Hajitalebi</h3>
+                        <p class="text-indigo-400 font-semibold mt-1">Team Lead & Founder</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                            Aerospace Engineering student with a passion for project management and turning theoretical concepts into practical, high-impact hardware.
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="https://github.com/ahmadreza-hajtalebi" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github fa-2x"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin fa-2x"></i></a>
+                            <a href="https://orcid.org/0009-0001-6546-1276" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-id-card fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Team Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-center text-white mb-10 reveal">Core Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Sajjad Zahedi -->
+                <div class="card-container reveal" style="transition-delay: 100ms;">
+                    <div class="team-card">
+                        <img src="https://placehold.co/200x200/000000/FFFFFF?text=S.Z." alt="Sajjad Zahedi">
+                        <h3 class="text-xl font-bold text-white">Sajjad Zahedi</h3>
+                        <p class="text-indigo-400 font-semibold mt-1">CubeSat Lead</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                            Senior student and our technical lead for the CubeSat mission, specializing in satellite subsystems and integration.
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reza Seraj -->
+                <div class="card-container reveal" style="transition-delay: 200ms;">
+                    <div class="team-card">
+                        <img src="https://placehold.co/200x200/000000/FFFFFF?text=R.S." alt="Reza Seraj">
+                        <h3 class="text-xl font-bold text-white">Reza Seraj</h3>
+                        <p class="text-indigo-400 font-semibold mt-1">Core Operations & Sub-Team Lead</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                            The backbone of our team's operations, managing resources and leading a dedicated sub-team for project execution.
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sepanta Ghasemi -->
+                <div class="card-container reveal" style="transition-delay: 300ms;">
+                    <div class="team-card">
+                        <img src="https://placehold.co/200x200/000000/FFFFFF?text=S.G." alt="Sepanta Ghasemi">
+                        <h3 class="text-xl font-bold text-white">Sepanta Ghasemi</h3>
+                        <p class="text-indigo-400 font-semibold mt-1">Sub-Team Lead</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                            A proactive team member leading one of our specialized sub-teams, focusing on research and development.
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-24">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Vortiqon Science. All Rights Reserved.</p>
+            <p class="mt-2">An independent student research team at K. N. Toosi University of Technology.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.youtube.com/@vortiqon_science" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://github.com/vortiqon-science" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="mailto:contact.vortiqon@gmail.com" class="hover:text-indigo-400 transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation Script
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Documents | Vortiqon Science</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for clean text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Pure Black Background */
+            color: #E5E7EB;
+        }
+        .glass-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* REBUILT CARD DESIGN - Animation Guaranteed */
+        .card-container {
+            display: block; /* To make the whole area clickable */
+        }
+        .blog-card {
+            background-color: #111827;
+            border-radius: 0.75rem;
+            border: 1px solid #374151;
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        border-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-container:hover .blog-card {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+            border-color: #6366F1;
+        }
+        .blog-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Scroll Animation Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="glass-header py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl md:text-3xl font-extrabold text-white">
+                    Vortiqon<span class="text-indigo-400">.</span>Science
+                </a>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex items-center space-x-8 text-base font-medium">
+                        <a href="index.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Projects</a>
+                        <a href="team.html" class="text-gray-300 hover:text-indigo-300 transition-colors duration-300">Team</a>
+                        <a href="blog.html" class="text-white hover:text-indigo-300 transition-colors duration-300">Blog</a>
+                    </nav>
+                    <a href="mailto:contact.vortiqon@gmail.com?subject=Team Application" class="hidden md:inline-block ml-8 bg-indigo-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-all duration-300">Join</a>
+                </div>
+                <button class="md:hidden text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-20">
+        <!-- Page Title -->
+        <div class="text-center mb-16 reveal">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white">Documents & Insights</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">An archive of our technical reports, presentations, and analyses. Click on any item to view or download the document.</p>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Document 1: Featured -->
+                <div class="lg:col-span-3 reveal">
+                    <a href="/files/adcs-deep-dive.pdf" target="_blank" class="card-container group">
+                        <div class="blog-card md:flex-row">
+                            <img src="https://placehold.co/800x600/000000/FFFFFF?text=ADCS+Analysis" class="w-full md:w-1/3 h-64 md:h-auto object-cover" alt="Featured Post Image">
+                            <div class="blog-card-content justify-center">
+                                <p class="text-sm text-indigo-400 font-semibold mb-2">Featured Document: Technical Deep-Dive</p>
+                                <h3 class="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-indigo-300 transition-colors">
+                                    A Deep-Dive into our CubeSat's Attitude Determination and Control System (ADCS)
+                                </h3>
+                                <p class="text-gray-400 mb-6">
+                                    Explore the core algorithms, hardware selection, and simulation results behind the system that keeps our satellite stable and oriented in orbit.
+                                </p>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <p>By Ahmadreza Hajitalebi</p>
+                                    <span class="mx-2">&bull;</span>
+                                    <p>August 10, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Document 2 -->
+                <div class="reveal" style="transition-delay: 100ms;">
+                    <a href="/files/pdr-summary.pdf" target="_blank" class="card-container group">
+                        <div class="blog-card">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=PDR+Complete" class="w-full h-48 object-cover" alt="Blog Post">
+                            <div class="blog-card-content">
+                                <p class="text-sm text-indigo-400 font-semibold mb-2">Project Report</p>
+                                <h4 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">CubeSat PDR Phase Completed</h4>
+                                <p class="text-gray-400 text-sm mt-auto">A summary of our Preliminary Design Review, key decisions, and the roadmap towards CDR. [PDF]</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Document 3 -->
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <a href="/files/git-for-engineers.pptx" target="_blank" class="card-container group">
+                        <div class="blog-card">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=Git+for+Engineers" class="w-full h-48 object-cover" alt="Blog Post">
+                            <div class="blog-card-content">
+                                <p class="text-sm text-indigo-400 font-semibold mb-2">Presentation</p>
+                                <h4 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">Git & GitHub for Aerospace Teams</h4>
+                                <p class="text-gray-400 text-sm mt-auto">How we use version control to manage complex CAD files, simulation code, and documentation. [PPTX]</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Document 4 -->
+                <div class="reveal" style="transition-delay: 300ms;">
+                    <a href="/files/eps-power-budget.pdf" target="_blank" class="card-container group">
+                        <div class="blog-card">
+                            <img src="https://placehold.co/600x400/000000/FFFFFF?text=EPS+Design" class="w-full h-48 object-cover" alt="Blog Post">
+                            <div class="blog-card-content">
+                                <p class="text-sm text-indigo-400 font-semibold mb-2">Technical Analysis</p>
+                                <h4 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">Power Budgeting for a 1U CubeSat</h4>
+                                <p class="text-gray-400 text-sm mt-auto">An analysis of our Electrical Power System design, from solar panel selection to battery management. [PDF]</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Vortiqon Science. All Rights Reserved.</p>
+            <p class="mt-2">An independent student research team at K. N. Toosi University of Technology.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.youtube.com/@vortiqon_science" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="https://github.com/vortiqon-science" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="mailto:contact.vortiqon@gmail.com" class="hover:text-indigo-400 transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation Script
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
