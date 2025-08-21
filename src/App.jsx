@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-// Import Components (Corrected to lowercase to match filenames)
-import { Header } from './components/header';
-import { Footer } from './components/footer';
+// Import Components with correct PascalCase to match new filenames
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
-// Import Pages
+// Import Pages with correct PascalCase to match new filenames
 import { HomePage } from './pages/HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { TeamPage } from './pages/TeamPage';

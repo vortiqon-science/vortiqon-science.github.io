@@ -29,25 +29,37 @@ export const GeminiMissionGenerator = () => {
         setResult('');
 
         try {
-            // Send the request to OUR OWN secure serverless function
-            const response = await fetch('/api/generate', {
+            const fullPrompt = `As an expert aerospace engineering consultant, generate a concise and professional mission brief for the following concept. The response must be in Markdown format. The brief should be structured with these exact sections: ### Mission Title, ### Mission Objective, ### Key Technologies, ### Potential Impact. Concept: "${prompt}"`;
+            
+            // IMPORTANT: Replace "YOUR_GEMINI_API_KEY" with your actual API key
+            const apiKey = "YOUR_GEMINI_API_KEY"; 
+            
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${AIzaSyA7cG8Yc9o7cmZ8FwSSMWYdUQLr__cIsXE}`;
+            
+            const payload = {
+                contents: [{
+                    parts: [{ text: fullPrompt }]
+                }]
+            };
+
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: prompt })
+                body: JSON.stringify(payload)
             });
 
             const data = await response.json();
 
-            if (!response.ok) {
-                // If the server returned an error, display it
-                throw new Error(data.error || 'Something went wrong.');
+            if (!response.ok || !data.candidates || data.candidates.length === 0) {
+                throw new Error(data.error ? data.error.message : 'API request failed');
             }
-            
-            setResult(markdownToHtml(data.result));
+
+            const generatedText = data.candidates[0].content.parts[0].text;
+            setResult(markdownToHtml(generatedText));
 
         } catch (err) {
             console.error("Error:", err);
-            setError(err.message || "An error occurred. Please try again later.");
+            setError("An error occurred. Please try again later.");
         } finally {
             setIsLoading(false);
         }
