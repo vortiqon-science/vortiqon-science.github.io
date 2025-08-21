@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-// Import Components
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+// Import Components (Corrected to lowercase to match filenames)
+import { Header } from './components/header';
+import { Footer } from './components/footer';
 
 // Import Pages
 import { HomePage } from './pages/HomePage';
@@ -14,10 +14,8 @@ import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   const [page, setPage] = useState('Home');
-  // New state to hold the information of the person being contacted
   const [contactTarget, setContactTarget] = useState(null);
 
-  // New handler for navigating to the contact page with a specific target
   const handleContactNavigate = (target = null) => {
     setContactTarget(target);
     setPage('Contact');
@@ -26,10 +24,8 @@ export default function App() {
   const renderPage = () => {
     switch (page) {
       case 'Projects': return <ProjectsPage />;
-      // Pass the new handler to the TeamPage
       case 'Team': return <TeamPage onContact={handleContactNavigate} />;
       case 'Blog': return <BlogPage />;
-      // Pass the target state to the ContactPage
       case 'Contact': return <ContactPage contactTarget={contactTarget} />;
       case 'Home':
       default:

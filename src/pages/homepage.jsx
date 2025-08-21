@@ -6,7 +6,8 @@ import { User, Rocket } from 'lucide-react';
 import { pageVariants, pageTransition, stagger, fadeInUp } from '../utils/animations';
 import { Starfield } from '../components/Starfield';
 import { GeminiMissionGenerator } from '../components/GeminiMissionGenerator';
-import { Tilt } from '../components/Tilt';
+// Corrected to lowercase to match the filename
+import { Tilt } from '../components/tilt';
 
 // --- Recreated Stats Component ---
 const Stats = () => (
